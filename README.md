@@ -65,12 +65,12 @@ valuesInline:
     dashboards:
         edunext-grafana-dashboards:
         installations-performance:
-            url: https://raw.githubusercontent.com/eduNEXT/edunext-grafana-dashboards/main/installations-performance.json
+            url: https://raw.githubusercontent.com/eduNEXT/edunext-grafana-dashboards/main/dashboards/installations-performance.json
             token: ''
         nodes-performance:
-            url: https://raw.githubusercontent.com/eduNEXT/edunext-grafana-dashboards/main/nodes-performance.json
+            url: https://raw.githubusercontent.com/eduNEXT/edunext-grafana-dashboards/main/dashboards/nodes-performance.json
             token: ''
         namespaces-performance:
-            url: https://raw.githubusercontent.com/eduNEXT/edunext-grafana-dashboards/main/namespaces-performance.json
+            url: https://raw.githubusercontent.com/eduNEXT/edunext-grafana-dashboards/main/dashboards/namespaces-performance.json
             token: ''
 ```
