@@ -11,7 +11,6 @@ This dashboard provides an overview of various metrics related to installations 
 - Memory and CPU usage by deployment
 - Available and unavailable replicas
 - Pod states
-- Ingress request volumes
 
 The data is visualized using time series graphs, tables, and other formats to offer insights into deployment trends and resource utilization.
 
@@ -59,7 +58,7 @@ valuesInline:
             orgId: 1
             type: file
             disableDeletion: true
-            editable: true
+            editable: false
             options:
             path: /var/lib/grafana/dashboards/edunext-grafana-dashboards
     dashboards:
