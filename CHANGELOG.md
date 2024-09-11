@@ -1,6 +1,16 @@
 # CHANGELOG
 
+## v0.2.0 (2024-09-11)
+
+### Feature
+
+* feat: include no-regex installations performancw ([`8d77285`](https://github.com/eduNEXT/edunext-grafana-dashboards/commit/8d77285c07864fc25c228198d4e54719ac12f6a3))
+
 ## v0.1.0 (2024-09-10)
+
+### Chore
+
+* chore(release): preparing 0.1.0 ([`c0500ec`](https://github.com/eduNEXT/edunext-grafana-dashboards/commit/c0500ecfd230f3531fad8bb4fba38d2234e82cae))
 
 ### Feature
 
