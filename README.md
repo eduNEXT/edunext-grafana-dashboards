@@ -14,7 +14,11 @@ This dashboard provides an overview of various metrics related to installations 
 
 The data is visualized using time series graphs, tables, and other formats to offer insights into deployment trends and resource utilization.
 
-### 2. **Namespaces Performance**
+### 2. **Installations Performance (no regex)**
+
+This dashboard is a clone of the Installations Performance dashboard, but it does not include the regex configuration used to filter namespaces containing '.openedx'.
+
+### 3. **Namespaces Performance**
 
 This dashboard offers a comprehensive view of performance and resource usage across namespaces within the Kubernetes cluster. It includes:
 
@@ -26,7 +30,7 @@ This dashboard offers a comprehensive view of performance and resource usage acr
 
 This helps monitor resource consumption and data traffic across the entire cluster.
 
-### 3. **Nodes Performance**
+### 4. **Nodes Performance**
 
 This dashboard focuses on system performance across cluster nodes. Key metrics include:
 
