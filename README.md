@@ -53,27 +53,24 @@ version: xx.x.x
 releaseName: prometheus
 includeCRDs: true
 valuesInline:
-    grafana:
-        dashboardProviders:
-            dashboardproviders.yaml:
-            apiVersion: 1
-            providers:
-            - name: 'edunext-grafana-dashboards'
-                orgId: 1
-                type: file
-                disableDeletion: true
-                editable: false
-                options:
-                path: /var/lib/grafana/dashboards/edunext-grafana-dashboards
-        dashboards:
-            edunext-grafana-dashboards:
-                installations-performance:
-                    url: https://raw.githubusercontent.com/eduNEXT/edunext-grafana-dashboards/main/dashboards/installations-performance.json
-                    token: ''
-                nodes-performance:
-                    url: https://raw.githubusercontent.com/eduNEXT/edunext-grafana-dashboards/main/dashboards/nodes-performance.json
-                    token: ''
-                namespaces-performance:
-                    url: https://raw.githubusercontent.com/eduNEXT/edunext-grafana-dashboards/main/dashboards/namespaces-performance.json
-                    token: ''
+  grafana:
+    dashboardProviders:
+    dashboardproviders.yaml:
+        apiVersion: 1
+        providers:
+        - name: 'edunext-grafana-dashboards'
+        orgId: 1
+        type: file
+        disableDeletion: true
+        editable: false
+        options:
+            path: /var/lib/grafana/dashboards/edunext-grafana-dashboards
+    dashboards:
+    edunext-grafana-dashboards:
+        installations-performance:
+        url: https://raw.githubusercontent.com/eduNEXT/edunext-grafana-dashboards/v0.2.0/dashboards/installations-performance.json
+        nodes-performance:
+        url: https://raw.githubusercontent.com/eduNEXT/edunext-grafana-dashboards/v0.2.0/dashboards/nodes-performance.json
+        namespaces-performance:
+        url: https://raw.githubusercontent.com/eduNEXT/edunext-grafana-dashboards/v0.2.0/dashboards/namespaces-performance.json
 ```
