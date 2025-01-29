@@ -739,24 +739,11 @@
       "type": "timeseries"
     },
     {
-      "collapsed": false,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 34
-      },
-      "id": 87,
-      "panels": [],
-      "title": "Resources",
-      "type": "row"
-    },
-    {
       "datasource": {
         "type": "prometheus",
         "uid": "fe9avct3qgao0c"
       },
-      "description": "This panel provides a comprehensive time series view of various Kubernetes resource counts. It tracks and visualizes the number of namespaces, running containers, running pods, services, endpoints, ingresses, deployments, statefulsets, daemonsets, persistent volume claims, horizontal pod autoscalers, configmaps, secrets, network policies, and nodes over time.",
+      "description": "This panel presents a time series graph of memory usage for each pod, displayed in bytes. It includes data on the working set memory used by containers within each pod, segmented by namespace.",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -771,8 +758,8 @@
             "barAlignment": 0,
             "barWidthFactor": 0.6,
             "drawStyle": "line",
-            "fillOpacity": 25,
-            "gradientMode": "opacity",
+            "fillOpacity": 34,
+            "gradientMode": "none",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -780,21 +767,22 @@
             },
             "insertNulls": false,
             "lineInterpolation": "smooth",
-            "lineWidth": 2,
-            "pointSize": 5,
+            "lineWidth": 1,
+            "pointSize": 2,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "never",
+            "showPoints": "auto",
             "spanNulls": false,
             "stacking": {
               "group": "A",
-              "mode": "none"
+              "mode": "normal"
             },
             "thresholdsStyle": {
               "mode": "off"
             }
           },
+          "fieldMinMax": false,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -809,17 +797,17 @@
               }
             ]
           },
-          "unit": "short"
+          "unit": "bytes"
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 11,
-        "w": 12,
+        "h": 8,
+        "w": 24,
         "x": 0,
-        "y": 35
+        "y": 34
       },
-      "id": 83,
+      "id": 98,
       "options": {
         "legend": {
           "calcs": [
@@ -830,11 +818,92 @@
           "displayMode": "table",
           "placement": "bottom",
           "showLegend": true,
-          "sortBy": "Max",
+          "sortBy": "Name",
           "sortDesc": true
         },
         "tooltip": {
-          "mode": "multi",
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fe9avct3qgao0c"
+          },
+          "editorMode": "code",
+          "expr": "sum(container_memory_working_set_bytes{job=\"kubelet\", metrics_path=\"/metrics/cadvisor\", container!=\"\", image!=\"\"}) by (pod)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Memory Usage per Pod - Stacked",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 42
+      },
+      "id": 87,
+      "panels": [],
+      "title": "Resources",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fe9avct3qgao0c"
+      },
+      "description": "This panel displays the number of available replicas for each deployment within a selected namespace. It uses a time series graph to track the availability of replicas over time for different deployments, allowing you to monitor how many replicas are currently running and how this changes over time.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": [],
+          "unit": "replicas"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 0,
+        "y": 43
+      },
+      "id": 97,
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "tooltip": {
+          "mode": "single",
           "sort": "none"
         }
       },
@@ -847,185 +916,16 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(kube_namespace_labels)",
+          "expr": "sum(kube_deployment_status_replicas_available) by (deployment)",
           "interval": "",
-          "legendFormat": "__auto",
+          "key": "Q-96f463da-fe05-426b-a704-dad27c29245b-0",
+          "legendFormat": "{{deployment}}",
           "range": true,
           "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
-          },
-          "editorMode": "code",
-          "expr": "sum(kube_pod_container_status_running)",
-          "interval": "",
-          "legendFormat": "Running Containers",
-          "range": true,
-          "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
-          },
-          "editorMode": "code",
-          "expr": "sum(kube_pod_status_phase{phase=\"Running\"})",
-          "interval": "",
-          "legendFormat": "Running Pods",
-          "range": true,
-          "refId": "O"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
-          },
-          "editorMode": "code",
-          "expr": "sum(kube_service_info)",
-          "interval": "",
-          "legendFormat": "Services",
-          "range": true,
-          "refId": "C"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
-          },
-          "editorMode": "code",
-          "expr": "sum(kube_endpoint_info)",
-          "interval": "",
-          "legendFormat": "Endpoints",
-          "range": true,
-          "refId": "D"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
-          },
-          "editorMode": "code",
-          "expr": "sum(kube_ingress_info)",
-          "interval": "",
-          "legendFormat": "Ingresses",
-          "range": true,
-          "refId": "E"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
-          },
-          "editorMode": "code",
-          "expr": "sum(kube_deployment_labels)",
-          "interval": "",
-          "legendFormat": "Deployments",
-          "range": true,
-          "refId": "F"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
-          },
-          "editorMode": "code",
-          "expr": "sum(kube_statefulset_labels)",
-          "interval": "",
-          "legendFormat": "Statefulsets",
-          "range": true,
-          "refId": "G"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
-          },
-          "editorMode": "code",
-          "expr": "sum(kube_daemonset_labels)",
-          "interval": "",
-          "legendFormat": "Daemonsets",
-          "range": true,
-          "refId": "H"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
-          },
-          "editorMode": "code",
-          "expr": "sum(kube_persistentvolumeclaim_info)",
-          "interval": "",
-          "legendFormat": "Persistent Volume Claims",
-          "range": true,
-          "refId": "I"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
-          },
-          "editorMode": "code",
-          "expr": "sum(kube_hpa_labels)",
-          "interval": "",
-          "legendFormat": "Horizontal Pod Autoscalers",
-          "range": true,
-          "refId": "J"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
-          },
-          "editorMode": "code",
-          "expr": "sum(kube_configmap_info)",
-          "interval": "",
-          "legendFormat": "Configmaps",
-          "range": true,
-          "refId": "K"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
-          },
-          "editorMode": "code",
-          "expr": "sum(kube_secret_info)",
-          "interval": "",
-          "legendFormat": "Secrets",
-          "range": true,
-          "refId": "L"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
-          },
-          "editorMode": "code",
-          "expr": "sum(kube_networkpolicy_labels)",
-          "interval": "",
-          "legendFormat": "Network Policies",
-          "range": true,
-          "refId": "M"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
-          },
-          "editorMode": "code",
-          "exemplar": true,
-          "expr": "count(count by (node) (kube_node_info))",
-          "hide": false,
-          "interval": "",
-          "legendFormat": "Nodes",
-          "range": true,
-          "refId": "N"
         }
       ],
-      "title": "Kubernetes Resource Count",
-      "type": "timeseries"
+      "title": "Replicas available total by namespace",
+      "type": "piechart"
     },
     {
       "datasource": {
@@ -1093,7 +993,7 @@
         "h": 11,
         "w": 12,
         "x": 12,
-        "y": 35
+        "y": 43
       },
       "id": 88,
       "options": {
@@ -1134,7 +1034,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 46
+        "y": 54
       },
       "id": 78,
       "panels": [],
@@ -1260,7 +1160,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 47
+        "y": 55
       },
       "id": 94,
       "options": {
@@ -1365,7 +1265,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 55
+        "y": 63
       },
       "id": 95,
       "options": {
@@ -1462,7 +1362,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 55
+        "y": 63
       },
       "id": 96,
       "options": {
@@ -1543,6 +1443,6 @@
   "timezone": "",
   "title": "tribuga-openedx - Namespaces performance",
   "uid": "mbUrXLkSzZP",
-  "version": 52,
+  "version": 56,
   "weekStart": ""
 }
