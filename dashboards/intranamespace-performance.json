@@ -44,7 +44,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fe9avct3qgao0c"
+        "uid": "prometheus"
       },
       "description": "This panel displays the total CPU usage in cores for the selected namespace(s), along with the requested CPU, limits, and total CPU resources available in the cluster.",
       "fieldConfig": {
@@ -94,7 +94,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -107,7 +107,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\"})",
@@ -119,7 +119,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "expr": "sum(kube_pod_container_resource_limits{resource=\"cpu\"})",
@@ -135,7 +135,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fe9avct3qgao0c"
+        "uid": "prometheus"
       },
       "description": "This panel shows the CPU usage for each namespace in the cluster, measured in cores, over time.",
       "fieldConfig": {
@@ -222,7 +222,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -331,7 +331,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "expr": "sum(rate(container_cpu_usage_seconds_total{image!=\"\"}[$resolution])) by (pod)",
@@ -360,7 +360,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fe9avct3qgao0c"
+        "uid": "prometheus"
       },
       "description": "This panel shows the total RAM usage in bytes for the selected namespace(s), along with the requested RAM, limits, and total RAM available in the cluster.",
       "fieldConfig": {
@@ -410,7 +410,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -424,7 +424,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\"})",
@@ -436,7 +436,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "expr": "sum(kube_pod_container_resource_limits{resource=\"memory\"})",
@@ -452,7 +452,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fe9avct3qgao0c"
+        "uid": "prometheus"
       },
       "description": "This panel provides a bar gauge visualization of memory usage for each namespace. It shows the working set memory used by containers, with a color scale from green to red based on the set thresholds.",
       "fieldConfig": {
@@ -507,7 +507,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -525,7 +525,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fe9avct3qgao0c"
+        "uid": "prometheus"
       },
       "description": "This panel shows a time series graph of memory usage for each namespace in bytes. The graph uses a smooth line interpolation with a fill opacity to illustrate the memory consumption of containers within each namespace.",
       "fieldConfig": {
@@ -617,7 +617,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -635,7 +635,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fe9avct3qgao0c"
+        "uid": "prometheus"
       },
       "description": "This panel presents a time series graph of memory usage for each pod, displayed in bytes. It includes data on the working set memory used by containers within each pod, segmented by namespace.",
       "fieldConfig": {
@@ -724,7 +724,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "expr": "sum(container_memory_working_set_bytes{job=\"kubelet\", metrics_path=\"/metrics/cadvisor\", container!=\"\", image!=\"\"}) by (pod)",
@@ -741,7 +741,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fe9avct3qgao0c"
+        "uid": "prometheus"
       },
       "description": "This panel presents a time series graph of memory usage for each pod, displayed in bytes. It includes data on the working set memory used by containers within each pod, segmented by namespace.",
       "fieldConfig": {
@@ -831,7 +831,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "expr": "sum(container_memory_working_set_bytes{job=\"kubelet\", metrics_path=\"/metrics/cadvisor\", container!=\"\", image!=\"\"}) by (pod)",
@@ -861,7 +861,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fe9avct3qgao0c"
+        "uid": "prometheus"
       },
       "description": "This panel displays the number of available replicas for each deployment within a selected namespace. It uses a time series graph to track the availability of replicas over time for different deployments, allowing you to monitor how many replicas are currently running and how this changes over time.",
       "fieldConfig": {
@@ -912,7 +912,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -930,7 +930,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fe9avct3qgao0c"
+        "uid": "prometheus"
       },
       "description": "This panel displays the number of available replicas for each deployment within a selected namespace. It uses a time series graph to track the availability of replicas over time for different deployments, allowing you to monitor how many replicas are currently running and how this changes over time.",
       "fieldConfig": {
@@ -1013,7 +1013,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1036,6 +1036,209 @@
         "x": 0,
         "y": 54
       },
+      "id": 101,
+      "panels": [],
+      "title": "Storage Usage",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 15,
+        "x": 0,
+        "y": 55
+      },
+      "id": 99,
+      "interval": "1m",
+      "options": {
+        "legend": {
+          "asTable": true,
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "(\n  sum without(instance, node) (topk(1, (kubelet_volume_stats_capacity_bytes{job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"$namespace\"})))\n  -\n  sum without(instance, node) (topk(1, (kubelet_volume_stats_available_bytes{job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"$namespace\"})))\n)\n",
+          "instant": false,
+          "legendFormat": "Used Space",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "sum without(instance, node) (topk(1, (kubelet_volume_stats_available_bytes{job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"$namespace\"})))\n",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Free Space",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Volume Space Usage",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 80
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 9,
+        "x": 15,
+        "y": 55
+      },
+      "id": 100,
+      "interval": "1m",
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "11.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "max without(instance,node) (\n(\n  topk(1, kubelet_volume_stats_capacity_bytes{job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"$namespace\"})\n  -\n  topk(1, kubelet_volume_stats_available_bytes{job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"$namespace\"})\n)\n/\ntopk(1, kubelet_volume_stats_capacity_bytes{job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"$namespace\"})\n* 100)\n",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Volume Space Usage",
+      "type": "gauge"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 63
+      },
       "id": 78,
       "panels": [],
       "title": "Traffic",
@@ -1044,7 +1247,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fe9avct3qgao0c"
+        "uid": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -1160,7 +1363,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 55
+        "y": 64
       },
       "id": 94,
       "options": {
@@ -1182,7 +1385,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "expr": "round(sum(irate(nginx_ingress_controller_requests[2m])) by (ingress), 0.001)",
@@ -1203,7 +1406,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fe9avct3qgao0c"
+        "uid": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -1265,7 +1468,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 63
+        "y": 72
       },
       "id": 95,
       "options": {
@@ -1285,7 +1488,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.95, sum(rate(nginx_ingress_controller_request_duration_seconds_bucket{ingress!=\"\"}[2m])) by (le, ingress))",
@@ -1300,7 +1503,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fe9avct3qgao0c"
+        "uid": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -1362,7 +1565,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 63
+        "y": 72
       },
       "id": 96,
       "options": {
@@ -1382,7 +1585,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fe9avct3qgao0c"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.99, sum(rate(nginx_ingress_controller_request_duration_seconds_bucket{ingress!=\"\"}[2m])) by (le, ingress))",
@@ -1400,9 +1603,7 @@
   "schemaVersion": 40,
   "tags": [
     "edunext",
-    "Namespaces",
-    "tribuga-openedx",
-    "nginx"
+    "Namespaces"
   ],
   "templating": {
     "list": [
@@ -1432,6 +1633,28 @@
         ],
         "query": "1m, 3m, 5m",
         "type": "custom"
+      },
+      {
+        "current": {
+          "text": "tribuga-openedx",
+          "value": "tribuga-openedx"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "definition": "label_values(kube_pod_info,namespace)",
+        "label": "namespace",
+        "name": "namespace",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(kube_pod_info,namespace)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
       }
     ]
   },
@@ -1443,6 +1666,6 @@
   "timezone": "",
   "title": "tribuga-openedx - Namespaces performance",
   "uid": "mbUrXLkSzZP",
-  "version": 56,
+  "version": 68,
   "weekStart": ""
 }
