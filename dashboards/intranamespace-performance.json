@@ -1120,39 +1120,6 @@
                 }
               }
             ]
-          },
-          {
-            "__systemRef": "hideSeriesFrom",
-            "matcher": {
-              "id": "byNames",
-              "options": {
-                "mode": "exclude",
-                "names": [
-                  "Value",
-                  "global-ingress",
-                  "grafana-ingress",
-                  "ingress-files-redwood-releases-edunext-link-tls",
-                  "ingress-lms-preview",
-                  "ingress-minio-redwood-releases-edunext-link-tls",
-                  "ingress-notes-redwood-releases-edunext-link-tls",
-                  "ingress-notes-sumac-releases-edunext-link-tls",
-                  "ingress-notes-zach-prod-atlas-edunext-link-tls",
-                  "kubecost-cost-analyzer"
-                ],
-                "prefix": "All except:",
-                "readOnly": true
-              }
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": true
-                }
-              }
-            ]
           }
         ]
       },
@@ -1430,24 +1397,6 @@
         ],
         "query": "1m, 3m, 5m",
         "type": "custom"
-      },
-      {
-        "datasource": {
-          "type": "prometheus",
-          "uid": "prometheus"
-        },
-        "definition": "label_values(kube_pod_info,namespace)",
-        "label": "namespace",
-        "name": "namespace",
-        "options": [],
-        "query": {
-          "qryType": 1,
-          "query": "label_values(kube_pod_info,namespace)",
-          "refId": "PrometheusVariableQueryEditor-VariableQuery"
-        },
-        "refresh": 1,
-        "regex": "",
-        "type": "query"
       }
     ]
   },
