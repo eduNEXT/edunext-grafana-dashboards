@@ -22,7 +22,7 @@
     ]
   },
   "description": "This dashboard provides a comprehensive view of performance and resource usage across the namespaces of a Kubernetes cluster. It includes detailed metrics on CPU and memory usage for each namespace and pod, along with an analysis of RAM usage in bytes and its percentage relative to the total cluster resources. Additionally, it displays network transmission and reception metrics for each namespace, facilitating data traffic monitoring.",
-  "editable": true,
+  "editable": false,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
   "id": 52,
@@ -240,7 +240,7 @@
     {
       "datasource": {
         "type": "datasource",
-        "uid": "-- Mixed --"
+        "uid": "prometheus"
       },
       "description": "This panel displays the CPU usage per pod in the Kubernetes cluster, measured in cores, over time.",
       "fieldConfig": {
@@ -1364,7 +1364,7 @@
   ],
   "preload": false,
   "refresh": "30s",
-  "schemaVersion": 40,
+  "schemaVersion": 1,
   "tags": [
     "edunext",
     "Namespaces"
@@ -1406,8 +1406,8 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "edunext - Namespaces performance",
-  "uid": "mbUrXLkSzZP",
-  "version": 69,
+  "title": "Open edX Performance",
+  "uid": "openedxperformance",
+  "version": 1,
   "weekStart": ""
 }
