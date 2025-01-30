@@ -1363,7 +1363,7 @@
     }
   ],
   "preload": false,
-  "refresh": "30s",
+  "refresh": "5m",
   "schemaVersion": 1,
   "tags": [
     "edunext",
