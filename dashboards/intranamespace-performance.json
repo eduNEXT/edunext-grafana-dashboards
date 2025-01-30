@@ -22,7 +22,7 @@
     ]
   },
   "description": "This dashboard provides a comprehensive view of performance and resource usage across the namespaces of a Kubernetes cluster. It includes detailed metrics on CPU and memory usage for each namespace and pod, along with an analysis of RAM usage in bytes and its percentage relative to the total cluster resources. Additionally, it displays network transmission and reception metrics for each namespace, facilitating data traffic monitoring.",
-  "editable": true,
+  "editable": false,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
   "id": 52,
@@ -240,7 +240,7 @@
     {
       "datasource": {
         "type": "datasource",
-        "uid": "-- Mixed --"
+        "uid": "prometheus"
       },
       "description": "This panel displays the CPU usage per pod in the Kubernetes cluster, measured in cores, over time.",
       "fieldConfig": {
@@ -1120,39 +1120,6 @@
                 }
               }
             ]
-          },
-          {
-            "__systemRef": "hideSeriesFrom",
-            "matcher": {
-              "id": "byNames",
-              "options": {
-                "mode": "exclude",
-                "names": [
-                  "Value",
-                  "global-ingress",
-                  "grafana-ingress",
-                  "ingress-files-redwood-releases-edunext-link-tls",
-                  "ingress-lms-preview",
-                  "ingress-minio-redwood-releases-edunext-link-tls",
-                  "ingress-notes-redwood-releases-edunext-link-tls",
-                  "ingress-notes-sumac-releases-edunext-link-tls",
-                  "ingress-notes-zach-prod-atlas-edunext-link-tls",
-                  "kubecost-cost-analyzer"
-                ],
-                "prefix": "All except:",
-                "readOnly": true
-              }
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": true
-                }
-              }
-            ]
           }
         ]
       },
@@ -1396,8 +1363,8 @@
     }
   ],
   "preload": false,
-  "refresh": "30s",
-  "schemaVersion": 40,
+  "refresh": "5m",
+  "schemaVersion": 1,
   "tags": [
     "edunext",
     "Namespaces"
@@ -1430,24 +1397,6 @@
         ],
         "query": "1m, 3m, 5m",
         "type": "custom"
-      },
-      {
-        "datasource": {
-          "type": "prometheus",
-          "uid": "prometheus"
-        },
-        "definition": "label_values(kube_pod_info,namespace)",
-        "label": "namespace",
-        "name": "namespace",
-        "options": [],
-        "query": {
-          "qryType": 1,
-          "query": "label_values(kube_pod_info,namespace)",
-          "refId": "PrometheusVariableQueryEditor-VariableQuery"
-        },
-        "refresh": 1,
-        "regex": "",
-        "type": "query"
       }
     ]
   },
@@ -1457,8 +1406,8 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "edunext - Namespaces performance",
-  "uid": "mbUrXLkSzZP",
-  "version": 69,
+  "title": "Open edX Performance",
+  "uid": "openedxperformance",
+  "version": 1,
   "weekStart": ""
 }
