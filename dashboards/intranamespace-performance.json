@@ -1432,10 +1432,6 @@
         "type": "custom"
       },
       {
-        "current": {
-          "text": "tribuga-openedx",
-          "value": "tribuga-openedx"
-        },
         "datasource": {
           "type": "prometheus",
           "uid": "prometheus"
@@ -1461,7 +1457,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "tribuga-openedx - Namespaces performance",
+  "title": "edunext - Namespaces performance",
   "uid": "mbUrXLkSzZP",
   "version": 69,
   "weekStart": ""
