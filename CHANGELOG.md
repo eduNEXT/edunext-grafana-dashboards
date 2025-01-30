@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.3.1 (2025-01-30)
+
+### Bug Fixes
+
+- Rename base dashboard ([#4](https://github.com/eduNEXT/edunext-grafana-dashboards/pull/4),
+  [`304d7de`](https://github.com/eduNEXT/edunext-grafana-dashboards/commit/304d7de82bd331f5f9193bb9cdb54dea0090f1c6))
+
+
 ## v0.3.0 (2025-01-30)
 
 ### Bug Fixes
