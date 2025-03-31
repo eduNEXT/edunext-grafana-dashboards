@@ -1,285 +1,310 @@
 {
-    "annotations": {
-      "list": [
-        {
-          "builtIn": 1,
-          "datasource": {
-            "type": "victoriametrics-logs-datasource"
-          },
-          "enable": true,
-          "hide": true,
-          "iconColor": "rgba(0, 211, 255, 1)",
-          "name": "Annotations & Alerts",
-          "target": {
-            "limit": 100,
-            "matchAny": false,
-            "tags": [],
-            "type": "dashboard"
-          },
-          "type": "dashboard"
-        }
-      ]
-    },
-    "editable": true,
-    "fiscalYearStartMonth": 0,
-    "graphTooltip": 1,
-    "id": 10,
-    "links": [],
-    "panels": [
+  "annotations": {
+    "list": [
       {
-        "collapsed": false,
-        "gridPos": {
-          "h": 1,
-          "w": 24,
-          "x": 0,
-          "y": 0
-        },
-        "id": 10,
-        "panels": [],
-        "title": "Logs by container ($container:$filter)",
-        "type": "row"
-      },
-      {
+        "builtIn": 1,
         "datasource": {
-          "type": "victoriametrics-logs-datasource"
+          "type": "victoriametrics-logs-datasource",
+          "uid": "VL"
         },
-        "description": "This panel shows the count of logs that have been recorded over time for ($container) container",
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": 10,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 10,
+      "panels": [],
+      "title": "Logs by container ($container:$filter)",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "victoriametrics-logs-datasource",
+        "uid": "VL"
+      },
+      "description": "This panel shows the count of logs that have been recorded over time for ($container) container",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
             },
-            "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "fillOpacity": 80,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "lineWidth": 1,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
             },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
+            "thresholdsStyle": {
+              "mode": "off"
             }
           },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 8,
-          "w": 24,
-          "x": 0,
-          "y": 1
-        },
-        "id": 8,
-        "interval": "10m",
-        "options": {
-          "barRadius": 0,
-          "barWidth": 1,
-          "fullHighlight": false,
-          "groupWidth": 0.7,
-          "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
-            "showLegend": false
-          },
-          "orientation": "vertical",
-          "showValue": "auto",
-          "stacking": "normal",
-          "tooltip": {
-            "mode": "multi",
-            "sort": "desc"
-          },
-          "xTickLabelRotation": 0,
-          "xTickLabelSpacing": 200
-        },
-        "pluginVersion": "11.3.1",
-        "targets": [
-          {
-            "datasource": {
-              "type": "victoriametrics-logs-datasource"
-            },
-            "editorMode": "code",
-            "expr": "kubernetes.container_name:=\"$container\"\n| $filter\n| stats by (kubernetes.pod_name,kubernetes.container_name) count() logs_total",
-            "legendFormat": "{{kubernetes.pod_name}} ({{kubernetes.container_name}})",
-            "queryType": "statsRange",
-            "range": true,
-            "refId": "A"
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
           }
-        ],
-        "title": "Logs total ($container)",
-        "type": "barchart"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 8,
+      "interval": "10m",
+      "options": {
+        "barRadius": 0,
+        "barWidth": 1,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "orientation": "vertical",
+        "showValue": "auto",
+        "stacking": "normal",
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 200
+      },
+      "pluginVersion": "11.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "victoriametrics-logs-datasource",
+            "uid": "VL"
+          },
+          "editorMode": "code",
+          "expr": "kubernetes.container_name:=\"$container\"\n| $filter\n| stats by (kubernetes.pod_name,kubernetes.container_name) count() logs_total",
+          "legendFormat": "{{kubernetes.pod_name}} ({{kubernetes.container_name}})",
+          "queryType": "statsRange",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Logs total ($container)",
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "victoriametrics-logs-datasource",
+        "uid": "VL"
+      },
+      "description": "This panel shows the display, fields and details of the logs generated and filtered for $container",
+      "gridPos": {
+        "h": 13,
+        "w": 24,
+        "x": 0,
+        "y": 9
+      },
+      "id": 1,
+      "options": {
+        "dedupStrategy": "none",
+        "enableLogDetails": true,
+        "prettifyLogMessage": false,
+        "showCommonLabels": false,
+        "showLabels": false,
+        "showTime": false,
+        "sortOrder": "Descending",
+        "wrapLogMessage": false
+      },
+      "pluginVersion": "11.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "victoriametrics-logs-datasource",
+            "uid": "VL"
+          },
+          "editorMode": "code",
+          "expr": "kubernetes.container_name:=\"$container\"\n| $filter\n| sort by (_time)\n| limit $limit",
+          "queryType": "instant",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Pod logs ($container)",
+      "type": "logs"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": true,
+          "text": "VL",
+          "value": "1c592f01-388f-4433-81c0-e72597b24141"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Victorialogs Datasource",
+        "multi": false,
+        "name": "vlogsdatasource",
+        "options": [],
+        "query": "victoriametrics-logs-datasource",
+        "queryValue": "",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
       },
       {
+        "current": {
+          "selected": true,
+          "text": "All",
+          "value": "$__all"
+        },
         "datasource": {
-          "type": "victoriametrics-logs-datasource"
+          "type": "victoriametrics-logs-datasource",
+          "uid": "VL"
         },
-        "description": "This panel shows the display, fields and details of the logs generated and filtered for $container",
-        "gridPos": {
-          "h": 13,
-          "w": 24,
-          "x": 0,
-          "y": 9
+        "definition": "",
+        "description": "Select the container or all to filter the logs and count",
+        "hide": 0,
+        "includeAll": true,
+        "multi": false,
+        "name": "container",
+        "options": [],
+        "query": {
+          "field": "kubernetes.container_name",
+          "limit": 25,
+          "query": "",
+          "refId": "VictoriaLogsVariableQueryEditor-VariableQuery",
+          "type": "fieldValue"
         },
-        "id": 1,
-        "options": {
-          "dedupStrategy": "none",
-          "enableLogDetails": true,
-          "prettifyLogMessage": false,
-          "showCommonLabels": false,
-          "showLabels": false,
-          "showTime": false,
-          "sortOrder": "Descending",
-          "wrapLogMessage": false
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "*",
+          "value": "*"
         },
-        "pluginVersion": "11.3.1",
-        "targets": [
+        "description": "Custom LogsQL filter attached to every query.\nType any word or phrase you want to look for. Set to \"*\" to not filter.\nSee https://docs.victoriametrics.com/victorialogs/logsql/#word-filter ",
+        "hide": 0,
+        "label": "Search Query",
+        "name": "filter",
+        "options": [
           {
-            "datasource": {
-              "type": "victoriametrics-logs-datasource"
-            },
-            "editorMode": "code",
-            "expr": "kubernetes.container_name:=\"$container\"\n| $filter\n| sort by (_time)\n| limit $limit",
-            "queryType": "instant",
-            "range": true,
-            "refId": "A"
-          }
-        ],
-        "title": "Pod logs ($container)",
-        "type": "logs"
-      }
-    ],
-    "refresh": "",
-    "schemaVersion": 39,
-    "tags": [],
-    "templating": {
-      "list": [
-        {
-          "current": {
             "selected": true,
-            "text": "All",
-            "value": "$__all"
-          },
-          "datasource": {
-            "type": "victoriametrics-logs-datasource"
-          },
-          "definition": "",
-          "description": "Select the container or all to filter the logs and count",
-          "hide": 0,
-          "includeAll": true,
-          "multi": false,
-          "name": "container",
-          "options": [],
-          "query": {
-            "field": "kubernetes.container_name",
-            "limit": 25,
-            "query": "",
-            "refId": "VictoriaLogsVariableQueryEditor-VariableQuery",
-            "type": "fieldValue"
-          },
-          "refresh": 1,
-          "regex": "",
-          "skipUrlSync": false,
-          "sort": 0,
-          "type": "query"
-        },
-        {
-          "current": {
-            "selected": false,
             "text": "*",
             "value": "*"
-          },
-          "description": "Custom LogsQL filter attached to every query.\nType any word or phrase you want to look for. Set to \"*\" to not filter.\nSee https://docs.victoriametrics.com/victorialogs/logsql/#word-filter ",
-          "hide": 0,
-          "label": "Search Query",
-          "name": "filter",
-          "options": [
-            {
-              "selected": true,
-              "text": "*",
-              "value": "*"
-            }
-          ],
-          "query": "*",
-          "skipUrlSync": false,
-          "type": "textbox"
+          }
+        ],
+        "query": "*",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "100",
+          "value": "100"
         },
-        {
-          "current": {
-            "selected": false,
+        "description": "Limit number of entries in Logs panel",
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "limit",
+        "options": [
+          {
+            "selected": true,
             "text": "100",
             "value": "100"
           },
-          "description": "Limit number of entries in Logs panel",
-          "hide": 0,
-          "includeAll": false,
-          "multi": false,
-          "name": "limit",
-          "options": [
-            {
-              "selected": true,
-              "text": "100",
-              "value": "100"
-            },
-            {
-              "selected": false,
-              "text": "500",
-              "value": "500"
-            },
-            {
-              "selected": false,
-              "text": "1000",
-              "value": "1000"
-            },
-            {
-              "selected": false,
-              "text": "2000",
-              "value": "2000"
-            },
-            {
-              "selected": false,
-              "text": "5000",
-              "value": "5000"
-            }
-          ],
-          "query": "100, 500, 1000, 2000, 5000",
-          "queryValue": "",
-          "skipUrlSync": false,
-          "type": "custom"
-        }
-      ]
-    },
-    "time": {
-      "from": "now-1h",
-      "to": "now"
-    },
-    "timepicker": {},
-    "timezone": "browser",
-    "title": "Open edX victoria-logs",
-    "uid": "be5zidev72m8Vl",
-    "version": 20,
-    "weekStart": ""
-  }
+          {
+            "selected": false,
+            "text": "500",
+            "value": "500"
+          },
+          {
+            "selected": false,
+            "text": "1000",
+            "value": "1000"
+          },
+          {
+            "selected": false,
+            "text": "2000",
+            "value": "2000"
+          },
+          {
+            "selected": false,
+            "text": "5000",
+            "value": "5000"
+          }
+        ],
+        "query": "100, 500, 1000, 2000, 5000",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Open edX victoria-logs",
+  "uid": "be5zidev72m8Vl",
+  "version": 20,
+  "weekStart": ""
+}
