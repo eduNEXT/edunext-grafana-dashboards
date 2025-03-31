@@ -1,6 +1,28 @@
 # CHANGELOG
 
 
+## v0.4.0 (2025-03-31)
+
+### Features
+
+- Add vlogs dashboard ([#5](https://github.com/eduNEXT/edunext-grafana-dashboards/pull/5),
+  [`6851d2d`](https://github.com/eduNEXT/edunext-grafana-dashboards/commit/6851d2d6cd11e0646aad9a2c56989f47a0c2dcd2))
+
+* feat: add vlogs dashboard
+
+* fix: remove datasource variable
+
+* fix: set vlogs datasource name
+
+* fix: remove variable
+
+* fix: add tags
+
+* feat: change uid
+
+* chore: format logs
+
+
 ## v0.3.1 (2025-01-30)
 
 ### Bug Fixes
