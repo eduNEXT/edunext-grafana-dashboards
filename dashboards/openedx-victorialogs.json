@@ -5,7 +5,7 @@
         "builtIn": 1,
         "datasource": {
           "type": "victoriametrics-logs-datasource",
-          "uid": "VL"
+          "uid": "victoria-logs"
         },
         "enable": true,
         "hide": true,
@@ -43,7 +43,7 @@
     {
       "datasource": {
         "type": "victoriametrics-logs-datasource",
-        "uid": "VL"
+        "uid": "victoria-logs"
       },
       "description": "This panel shows the count of logs that have been recorded over time for ($container) container",
       "fieldConfig": {
@@ -123,7 +123,7 @@
         {
           "datasource": {
             "type": "victoriametrics-logs-datasource",
-            "uid": "VL"
+            "uid": "victoria-logs"
           },
           "editorMode": "code",
           "expr": "kubernetes.container_name:=\"$container\"\n| $filter\n| stats by (kubernetes.pod_name,kubernetes.container_name) count() logs_total",
@@ -139,7 +139,7 @@
     {
       "datasource": {
         "type": "victoriametrics-logs-datasource",
-        "uid": "VL"
+        "uid": "victoria-logs"
       },
       "description": "This panel shows the display, fields and details of the logs generated and filtered for $container",
       "gridPos": {
@@ -164,7 +164,7 @@
         {
           "datasource": {
             "type": "victoriametrics-logs-datasource",
-            "uid": "VL"
+            "uid": "victoria-logs"
           },
           "editorMode": "code",
           "expr": "kubernetes.container_name:=\"$container\"\n| $filter\n| sort by (_time)\n| limit $limit",
@@ -194,7 +194,7 @@
         },
         "datasource": {
           "type": "victoriametrics-logs-datasource",
-          "uid": "VL"
+          "uid": "victoria-logs"
         },
         "definition": "",
         "description": "Select the container or all to filter the logs and count",
@@ -289,7 +289,7 @@
   "timepicker": {},
   "timezone": "browser",
   "title": "Open edX victoria-logs",
-  "uid": "be5zidev72m8Vl",
+  "uid": "be5zidev72m8victoria-logs",
   "version": 20,
   "weekStart": ""
 }
