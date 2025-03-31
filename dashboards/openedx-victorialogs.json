@@ -185,25 +185,6 @@
       {
         "current": {
           "selected": true,
-          "text": "VL",
-          "value": "1c592f01-388f-4433-81c0-e72597b24141"
-        },
-        "hide": 0,
-        "includeAll": false,
-        "label": "Victorialogs Datasource",
-        "multi": false,
-        "name": "vlogsdatasource",
-        "options": [],
-        "query": "victoriametrics-logs-datasource",
-        "queryValue": "",
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "type": "datasource"
-      },
-      {
-        "current": {
-          "selected": true,
           "text": "All",
           "value": "$__all"
         },
