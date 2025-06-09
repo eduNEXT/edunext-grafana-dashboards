@@ -1,0 +1,164 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Grafana --"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": null,
+    "links": [],
+    "panels": [
+      {
+        "collapsed": true,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        },
+        "id": 100,
+        "panels": [
+          {
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "thresholds"
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    }
+                  ]
+                }
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 15,
+              "w": 24,
+              "x": 0,
+              "y": 1
+            },
+            "id": 1,
+            "options": {
+              "code": {
+                "language": "markdown",
+                "showLineNumbers": false,
+                "showMiniMap": false
+              },
+              "content": "# MySQL Data Source Configuration Instructions\n\n## Demo Dashboard\nThis is a demo dashboard that shows you how to configure the MySQL data source and includes a sample panel with a preconfigured query. Once you follow these steps, you'll be able to see data in the sample panel below and create your own dashboards/panels using the same data source configuration.\n\n## Required steps\n1. Request the instance configuration from the Azimut service's `/config` endpoint. This will provide you with the necessary credentials for the MySQL connection in the config.yml file.\n\n2. In Grafana, go to the left-hand menu and navigate to `/connections/datasources`\n\n3. Find and select the data source called \"Openedx MySQL\" and edit the following fields:\n   - Database name\n   - Username\n   - Password\n\n## Values to use in the configuration\n- **Database**: OPENEDX_MYSQL_DATABASE\n- **User**: OPENEDX_MYSQL_USERNAME\n- **Password**: OPENEDX_MYSQL_PASSWORD\n\n## Important notes\nOnce you've configured these values, the sample panel below will display data from your MySQL database. You can use this same data source configuration to create additional dashboards and panels.",
+              "mode": "markdown"
+            },
+            "pluginVersion": "11.3.0",
+            "title": "MySQL Datasource Configuration Instructions",
+            "type": "text"
+          }
+        ],
+        "title": "Display Mysql Instructions",
+        "type": "row"
+      },
+      {
+        "datasource": {
+          "type": "mysql",
+          "uid": "mysql"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "align": "auto",
+              "cellOptions": {
+                "type": "auto"
+              },
+              "inspect": false
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 13
+        },
+        "id": 2,
+        "options": {
+          "cellHeight": "sm",
+          "footer": {
+            "countRows": false,
+            "fields": "",
+            "reducer": [
+              "sum"
+            ],
+            "show": false
+          },
+          "showHeader": true,
+          "sortBy": []
+        },
+        "pluginVersion": "11.3.0",
+        "targets": [
+          {
+            "datasource": {
+              "type": "mysql",
+              "uid": "mysql"
+            },
+            "format": "table",
+            "rawSql": "SELECT u.id, u.username, u.email, u.is_active FROM auth_user u LIMIT 100",
+            "refId": "A"
+          }
+        ],
+        "title": "Example Query",
+        "type": "table"
+      }
+    ],
+    "preload": false,
+    "refresh": "5s",
+    "schemaVersion": 40,
+    "tags": [
+      "tutorial",
+      "mysql"
+    ],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "browser",
+    "title": "MYSQL dashboard",
+    "uid": "customtextdashboard",
+    "version": 2,
+    "weekStart": ""
+  }
