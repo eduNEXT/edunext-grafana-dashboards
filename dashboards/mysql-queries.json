@@ -142,7 +142,7 @@
       }
     ],
     "preload": false,
-    "refresh": "5s",
+    "refresh": "5m",
     "schemaVersion": 40,
     "tags": [
       "tutorial",
