@@ -63,7 +63,7 @@
                 "showLineNumbers": false,
                 "showMiniMap": false
               },
-              "content": "# MySQL Data Source Configuration Instructions\n\n## Demo Dashboard\nThis is a demo dashboard that shows you how to configure the MySQL data source and includes a sample panel with a preconfigured query. Once you follow these steps, you'll be able to see data in the sample panel below and create your own dashboards/panels using the same data source configuration.\n\n## Required steps\n1. Request the instance configuration from the Azimut service's `/config` endpoint. This will provide you with the necessary credentials for the MySQL connection in the config.yml file.\n\n2. In Grafana, go to the left-hand menu and navigate to `/connections/datasources`\n\n3. Find and select the data source called \"Openedx MySQL\" and edit the following fields:\n   - Database name\n   - Username\n   - Password\n\n## Values to use in the configuration\n- **Database**: OPENEDX_MYSQL_DATABASE\n- **User**: OPENEDX_MYSQL_USERNAME\n- **Password**: OPENEDX_MYSQL_PASSWORD\n\n## Important notes\nOnce you've configured these values, the sample panel below will display data from your MySQL database. You can use this same data source configuration to create additional dashboards and panels.",
+              "content": "# MySQL Data Source Configuration Instructions\n\n## Demo Dashboard\nThis is a demo dashboard that shows how to configure the MySQL data source and includes a sample dashboard with a pre-configured query. You are already set up with the necessary access to view the sample panel shown below and create your own dashboards/panels using the same data source. However the configuration is shown in case you change these values or for any eventuality.\n\n## Required steps\n1. Request the instance configuration from the Azimut service's `/config` endpoint. This will provide you with the necessary credentials for the MySQL connection in the config.yml file.\n\n2. In Grafana, go to the left-hand menu and navigate to `/connections/datasources`\n\n3. Find and select the data source called \"Openedx MySQL\" and edit the following fields:\n   - Database name\n   - Username\n   - Password\n\n## Values to use in the configuration\n- **Database**: OPENEDX_MYSQL_DATABASE\n- **User**: OPENEDX_MYSQL_USERNAME\n- **Password**: OPENEDX_MYSQL_PASSWORD\n\n## Important notes\nExist a sample panel below will display data from your MySQL database. You can use this same data source configuration to create additional dashboards and panels.",
               "mode": "markdown"
             },
             "pluginVersion": "11.3.0",
@@ -162,3 +162,4 @@
     "version": 2,
     "weekStart": ""
   }
+  
