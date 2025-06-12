@@ -1,6 +1,29 @@
 # CHANGELOG
 
 
+## v0.5.0 (2025-06-12)
+
+### Features
+
+- Added mysql queries dashboard ([#6](https://github.com/eduNEXT/edunext-grafana-dashboards/pull/6),
+  [`79b3431`](https://github.com/eduNEXT/edunext-grafana-dashboards/commit/79b34316f4ddb3fe73d387961c14142a903d3359))
+
+* feat: added mysql queries dashboard
+
+* Update dashboards/mysql-queries.json
+
+Co-authored-by: Moisés González <moises.gonzalez@edunext.co>
+
+* feat: changed instructions on the text panel
+
+* feat: changed instruction to how create a query panel of mysql using the datasource
+
+* feat: added new tips and intruction of how dowload panel and warning of not update information in
+  tables
+
+---------
+
+
 ## v0.4.0 (2025-03-31)
 
 ### Features
