@@ -45,102 +45,6 @@
         "type": "victoriametrics-logs-datasource",
         "uid": "victoria-logs"
       },
-      "description": "This panel shows the count of logs that have been recorded over time for ($container) container",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "fillOpacity": 80,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineWidth": 1,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 24,
-        "x": 0,
-        "y": 1
-      },
-      "id": 8,
-      "interval": "10m",
-      "options": {
-        "barRadius": 0,
-        "barWidth": 1,
-        "fullHighlight": false,
-        "groupWidth": 0.7,
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": false
-        },
-        "orientation": "vertical",
-        "showValue": "auto",
-        "stacking": "normal",
-        "tooltip": {
-          "mode": "multi",
-          "sort": "desc"
-        },
-        "xTickLabelRotation": 0,
-        "xTickLabelSpacing": 200
-      },
-      "pluginVersion": "11.3.1",
-      "targets": [
-        {
-          "datasource": {
-            "type": "victoriametrics-logs-datasource",
-            "uid": "victoria-logs"
-          },
-          "editorMode": "code",
-          "expr": "kubernetes.container_name:=\"$container\"\n| $filter\n| stats by (kubernetes.pod_name,kubernetes.container_name) count() logs_total",
-          "legendFormat": "{{kubernetes.pod_name}} ({{kubernetes.container_name}})",
-          "queryType": "statsRange",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Logs total ($container)",
-      "type": "barchart"
-    },
-    {
-      "datasource": {
-        "type": "victoriametrics-logs-datasource",
-        "uid": "victoria-logs"
-      },
       "description": "This panel shows the display, fields and details of the logs generated and filtered for $container",
       "gridPos": {
         "h": 13,
@@ -156,7 +60,7 @@
         "showCommonLabels": false,
         "showLabels": false,
         "showTime": false,
-        "sortOrder": "Descending",
+        "sortOrder": "Ascending",
         "wrapLogMessage": true
       },
       "pluginVersion": "11.3.1",
@@ -240,8 +144,8 @@
       {
         "current": {
           "selected": false,
-          "text": "100",
-          "value": "100"
+          "text": "5000",
+          "value": "5000"
         },
         "description": "Limit number of entries in Logs panel",
         "hide": 0,
@@ -283,7 +187,7 @@
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {},
