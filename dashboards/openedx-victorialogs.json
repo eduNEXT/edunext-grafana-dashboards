@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
-  "id": 10,
+  "id": 4,
   "links": [],
   "panels": [
     {
@@ -46,8 +46,12 @@
         "uid": "victoria-logs"
       },
       "description": "This panel shows the display, fields and details of the logs generated and filtered for $container",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "gridPos": {
-        "h": 13,
+        "h": 19,
         "w": 24,
         "x": 0,
         "y": 9
@@ -81,8 +85,9 @@
       "type": "logs"
     }
   ],
+  "preload": false,
   "refresh": "",
-  "schemaVersion": 39,
+  "schemaVersion": 40,
   "tags": [
     "edunext",
     "Namespaces",
@@ -92,7 +97,6 @@
     "list": [
       {
         "current": {
-          "selected": true,
           "text": "All",
           "value": "$__all"
         },
@@ -102,9 +106,7 @@
         },
         "definition": "",
         "description": "Select the container or all to filter the logs and count",
-        "hide": 0,
         "includeAll": true,
-        "multi": false,
         "name": "container",
         "options": [],
         "query": {
@@ -116,18 +118,14 @@
         },
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
-        "sort": 0,
         "type": "query"
       },
       {
         "current": {
-          "selected": false,
           "text": "*",
           "value": "*"
         },
         "description": "Custom LogsQL filter attached to every query.\nType any word or phrase you want to look for. Set to \"*\" to not filter.\nSee https://docs.victoriametrics.com/victorialogs/logsql/#word-filter ",
-        "hide": 0,
         "label": "Search Query",
         "name": "filter",
         "options": [
@@ -138,28 +136,24 @@
           }
         ],
         "query": "*",
-        "skipUrlSync": false,
         "type": "textbox"
       },
       {
         "current": {
-          "selected": false,
-          "text": "5000",
-          "value": "5000"
+          "text": "500",
+          "value": "500"
         },
         "description": "Limit number of entries in Logs panel",
-        "hide": 0,
         "includeAll": false,
-        "multi": false,
         "name": "limit",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "100",
             "value": "100"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "500",
             "value": "500"
           },
@@ -180,8 +174,6 @@
           }
         ],
         "query": "100, 500, 1000, 2000, 5000",
-        "queryValue": "",
-        "skipUrlSync": false,
         "type": "custom"
       }
     ]
@@ -193,7 +185,7 @@
   "timepicker": {},
   "timezone": "browser",
   "title": "Open edX victoria-logs",
-  "uid": "be5zidev72m8victoria-logs",
-  "version": 20,
+  "uid": "openedxvictorialogs",
+  "version": 18,
   "weekStart": ""
 }
