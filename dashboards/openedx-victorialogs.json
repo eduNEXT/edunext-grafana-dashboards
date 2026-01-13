@@ -28,19 +28,6 @@
   "links": [],
   "panels": [
     {
-      "collapsed": false,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 0
-      },
-      "id": 10,
-      "panels": [],
-      "title": "Logs by container ($container:$filter)",
-      "type": "row"
-    },
-    {
       "datasource": {
         "type": "victoriametrics-logs-datasource",
         "uid": "victoria-logs"
@@ -86,7 +73,7 @@
     }
   ],
   "preload": false,
-  "refresh": "",
+  "refresh": "10s",
   "schemaVersion": 40,
   "tags": [
     "edunext",
