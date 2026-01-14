@@ -1,6 +1,30 @@
 # CHANGELOG
 
 
+## v0.6.0 (2026-01-14)
+
+### Features
+
+- Updated openedx-victorialogs ([#8](https://github.com/eduNEXT/edunext-grafana-dashboards/pull/8),
+  [`bdd5db4`](https://github.com/eduNEXT/edunext-grafana-dashboards/commit/bdd5db4d16cbbb22084ed79308c2824bc9072d18))
+
+* feat: updated openedx -victoria-logs
+
+* fix: added end space
+
+* feat: deleted group row and set 500 lines
+
+* fix: end line
+
+* feat: deleted log container row, added refresh every 10 seconds
+
+* fix: set refresh in 5 seconds
+
+* fix: set refresh in 5 minutes
+
+* fix: time from now-1h
+
+
 ## v0.5.0 (2025-06-12)
 
 ### Features
