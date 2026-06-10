@@ -1,6 +1,26 @@
 # CHANGELOG
 
 
+## v0.7.0 (2026-06-10)
+
+### Features
+
+- Add traefik dashboard ([#9](https://github.com/eduNEXT/edunext-grafana-dashboards/pull/9),
+  [`7ffa231`](https://github.com/eduNEXT/edunext-grafana-dashboards/commit/7ffa231f3abe941a9d967f14a04cb58565ed7ab0))
+
+* feat: add traefik dashboard
+
+* feat(traefik): traefik dashboard improvements
+
+- add latency dashboards for ingress. - improve latency dashboards visuals by hiding zero values. -
+  remove unnecesary treshold configurations from HTTP dashboards.
+
+* fix(traefik-dashboard): remove HTTP Request over period dashboard
+
+- Added template to monitoring instances performances
+  ([`a18fc69`](https://github.com/eduNEXT/edunext-grafana-dashboards/commit/a18fc69ea48dcc31d9985e4b5b0ef7a9ab2fc929))
+
+
 ## v0.6.0 (2026-01-14)
 
 ### Features
