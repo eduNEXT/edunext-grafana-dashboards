@@ -972,7 +972,7 @@
         "type": "prometheus",
         "uid": "${datasource}"
       },
-      "description": "Use and availability of exact usage by mount point in percentage.",
+      "description": "Exact usage by mount point.",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1043,49 +1043,6 @@
                 }
               }
             ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Avail%"
-            },
-            "properties": [
-              {
-                "id": "unit",
-                "value": "percent"
-              },
-              {
-                "id": "max",
-                "value": 100
-              },
-              {
-                "id": "custom.cellOptions",
-                "value": {
-                  "mode": "gradient",
-                  "type": "gauge"
-                }
-              },
-              {
-                "id": "thresholds",
-                "value": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "red",
-                      "value": 0
-                    },
-                    {
-                      "color": "orange",
-                      "value": 15
-                    },
-                    {
-                      "color": "green",
-                      "value": 30
-                    }
-                  ]
-                }
-              }
-            ]
           }
         ]
       },
@@ -1111,34 +1068,27 @@
       "targets": [
         {
           "editorMode": "code",
-          "expr": "node_filesystem_size_bytes{instance=~\"$node\",job=~\"$job\",fstype!~\"tmpfs|overlay|squashfs\"} - node_filesystem_avail_bytes{instance=~\"$node\",job=~\"$job\",fstype!~\"tmpfs|overlay|squashfs\"}",
+          "expr": "node_filesystem_size_bytes{instance=~\"$node\",job=~\"$job\",fstype=~\"ext4|xfs\"} - node_filesystem_avail_bytes{instance=~\"$node\",job=~\"$job\",fstype=~\"ext4|xfs\"}",
           "format": "table",
           "instant": true,
           "refId": "Used"
         },
         {
           "editorMode": "code",
-          "expr": "node_filesystem_size_bytes{instance=~\"$node\",job=~\"$job\",fstype!~\"tmpfs|overlay|squashfs\"}",
+          "expr": "node_filesystem_size_bytes{instance=~\"$node\",job=~\"$job\",fstype=~\"ext4|xfs\"}",
           "format": "table",
           "instant": true,
           "refId": "Size"
         },
         {
           "editorMode": "code",
-          "expr": "(node_filesystem_avail_bytes{instance=~\"$node\",job=~\"$job\",fstype!~\"tmpfs|overlay|squashfs\"} / node_filesystem_size_bytes{instance=~\"$node\",job=~\"$job\",fstype!~\"tmpfs|overlay|squashfs\"}) * 100",
-          "format": "table",
-          "instant": true,
-          "refId": "Avail%"
-        },
-        {
-          "editorMode": "code",
-          "expr": "(1 - node_filesystem_avail_bytes{instance=~\"$node\",job=~\"$job\",fstype!~\"tmpfs|overlay|squashfs\"} / node_filesystem_size_bytes{instance=~\"$node\",job=~\"$job\",fstype!~\"tmpfs|overlay|squashfs\"}) * 100",
+          "expr": "(1 - node_filesystem_avail_bytes{instance=~\"$node\",job=~\"$job\",fstype=~\"ext4|xfs\"} / node_filesystem_size_bytes{instance=~\"$node\",job=~\"$job\",fstype=~\"ext4|xfs\"}) * 100",
           "format": "table",
           "instant": true,
           "refId": "Use%"
         }
       ],
-      "title": "Filesystems (exact)",
+      "title": "Disk Usage",
       "transformations": [
         {
           "id": "merge",
@@ -1149,20 +1099,21 @@
           "options": {
             "excludeByName": {
               "Time": true,
+              "__name__": true,
+              "cluster": true,
               "device": true,
               "fstype": true,
               "instance": true,
-              "job": true
+              "job": true,
+              "role": true
             },
             "indexByName": {
-              "Value #Avail%": 3,
               "Value #Size": 2,
-              "Value #Use%": 4,
+              "Value #Use%": 3,
               "Value #Used": 1,
               "mountpoint": 0
             },
             "renameByName": {
-              "Value #Avail%": "Avail%",
               "Value #Size": "Total",
               "Value #Use%": "Use%",
               "Value #Used": "Used",
@@ -4519,90 +4470,8 @@
       },
       "id": 279,
       "panels": [],
-      "title": "Node Exporter and Services Status",
+      "title": "Node Exporter",
       "type": "row"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "description": "UP/DOWN of Mongo, MySQL/MariaDB, Redis and ClickHouse in the node.",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "color": "red",
-                  "index": 1,
-                  "text": "DOWN"
-                },
-                "1": {
-                  "color": "green",
-                  "index": 0,
-                  "text": "UP"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": 0
-              },
-              {
-                "color": "green",
-                "value": 1
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 24,
-        "x": 0,
-        "y": 15
-      },
-      "id": 911,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "value_and_name",
-        "wideLayout": true
-      },
-      "pluginVersion": "12.3.1",
-      "targets": [
-        {
-          "editorMode": "code",
-          "expr": "node_systemd_unit_state{instance=~\"$node\",job=~\"$job\",state=\"active\",name=~\"mongod.*|mysqld?.*|mariadb.*|redis.*|clickhouse.*\"}",
-          "instant": true,
-          "legendFormat": "{{name}}",
-          "refId": "A"
-        }
-      ],
-      "title": "Service Status (systemd)",
-      "type": "stat"
     },
     {
       "datasource": {
