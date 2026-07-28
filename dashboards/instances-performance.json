@@ -968,12 +968,169 @@
       "type": "stat"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "description": "Exact usage by mount point.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "footer": {
+              "reducers": []
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Use%"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "max",
+                "value": 100
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "gradient",
+                  "type": "gauge"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": 0
+                    },
+                    {
+                      "color": "orange",
+                      "value": 80
+                    },
+                    {
+                      "color": "red",
+                      "value": 90
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "id": 901,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "editorMode": "code",
+          "expr": "node_filesystem_size_bytes{instance=~\"$node\",job=~\"$job\",fstype=~\"ext4|xfs\"} - node_filesystem_avail_bytes{instance=~\"$node\",job=~\"$job\",fstype=~\"ext4|xfs\"}",
+          "format": "table",
+          "instant": true,
+          "refId": "Used"
+        },
+        {
+          "editorMode": "code",
+          "expr": "node_filesystem_size_bytes{instance=~\"$node\",job=~\"$job\",fstype=~\"ext4|xfs\"}",
+          "format": "table",
+          "instant": true,
+          "refId": "Size"
+        },
+        {
+          "editorMode": "code",
+          "expr": "(1 - node_filesystem_avail_bytes{instance=~\"$node\",job=~\"$job\",fstype=~\"ext4|xfs\"} / node_filesystem_size_bytes{instance=~\"$node\",job=~\"$job\",fstype=~\"ext4|xfs\"}) * 100",
+          "format": "table",
+          "instant": true,
+          "refId": "Use%"
+        }
+      ],
+      "title": "Disk Usage",
+      "transformations": [
+        {
+          "id": "merge",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "__name__": true,
+              "cluster": true,
+              "device": true,
+              "fstype": true,
+              "instance": true,
+              "job": true,
+              "role": true
+            },
+            "indexByName": {
+              "Value #Size": 2,
+              "Value #Use%": 3,
+              "Value #Used": 1,
+              "mountpoint": 0
+            },
+            "renameByName": {
+              "Value #Size": "Total",
+              "Value #Use%": "Use%",
+              "Value #Used": "Used",
+              "mountpoint": "Mount"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
       "collapsed": true,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 5
+        "y": 11
       },
       "id": 263,
       "panels": [
@@ -1626,7 +1783,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 6
+        "y": 12
       },
       "id": 265,
       "panels": [
@@ -3155,7 +3312,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 14
+        "y": 13
       },
       "id": 270,
       "panels": [
@@ -3174,7 +3331,7 @@
                 "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
-                "axisLabel": "read (\u2013) / write (+)",
+                "axisLabel": "read (–) / write (+)",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
                 "barWidthFactor": 0.6,
@@ -3306,7 +3463,7 @@
                 "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
-                "axisLabel": "read (\u2013) / write (+)",
+                "axisLabel": "read (–) / write (+)",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
                 "barWidthFactor": 0.6,
@@ -3442,7 +3599,7 @@
                 "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
-                "axisLabel": "read (\u2013) / write (+)",
+                "axisLabel": "read (–) / write (+)",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
                 "barWidthFactor": 0.6,
@@ -3690,7 +3847,7 @@
                 "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
-                "axisLabel": "read (\u2013) / write (+)",
+                "axisLabel": "read (–) / write (+)",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
                 "barWidthFactor": 0.6,
@@ -3743,7 +3900,9 @@
                     "value": "negative-Y"
                   }
                 ]
-              },
+              }
+            ],
+            "overrides": [
               {
                 "matcher": {
                   "id": "byRegexp",
@@ -4307,7 +4466,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 89
+        "y": 14
       },
       "id": 279,
       "panels": [],
@@ -4382,7 +4541,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 90
+        "y": 18
       },
       "id": 40,
       "options": {
@@ -4482,7 +4641,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 90
+        "y": 18
       },
       "id": 308,
       "options": {
@@ -4637,7 +4796,7 @@
         "h": 10,
         "w": 10,
         "x": 0,
-        "y": 100
+        "y": 28
       },
       "id": 149,
       "options": {
@@ -4800,7 +4959,7 @@
         "h": 10,
         "w": 10,
         "x": 10,
-        "y": 100
+        "y": 28
       },
       "id": 64,
       "options": {
@@ -4882,7 +5041,7 @@
         "h": 10,
         "w": 4,
         "x": 20,
-        "y": 100
+        "y": 28
       },
       "id": 157,
       "options": {
@@ -5037,5 +5196,5 @@
   "timezone": "browser",
   "title": "Infrastructure / Instances Performance",
   "uid": "Instances-performance",
-  "version": 1
+  "version": 8
 }
