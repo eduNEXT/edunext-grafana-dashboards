@@ -1,6 +1,19 @@
 # CHANGELOG
 
 
+## v0.8.0 (2026-08-10)
+
+### Features
+
+- Added used and availability of memory disk and services status
+  ([#11](https://github.com/eduNEXT/edunext-grafana-dashboards/pull/11),
+  [`25e2e9c`](https://github.com/eduNEXT/edunext-grafana-dashboards/commit/25e2e9cb376d76edc392fafd08b8bb98e0117257))
+
+* feat: added used and availability of memory disk and services status
+
+* fix: data in table disk usage and removed services status datasource
+
+
 ## v0.7.0 (2026-06-10)
 
 ### Features
