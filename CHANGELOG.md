@@ -1,6 +1,15 @@
 # CHANGELOG
 
 
+## v0.8.1 (2026-09-03)
+
+### Bug Fixes
+
+- **victorialogs-dashboard**: Fix main panel filter
+  ([#12](https://github.com/eduNEXT/edunext-grafana-dashboards/pull/12),
+  [`163deec`](https://github.com/eduNEXT/edunext-grafana-dashboards/commit/163deecb1e40624ae1747b099ef8c3a8f724c6f1))
+
+
 ## v0.8.0 (2026-08-10)
 
 ### Features
