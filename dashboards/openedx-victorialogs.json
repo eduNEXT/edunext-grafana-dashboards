@@ -62,7 +62,7 @@
             "uid": "victoria-logs"
           },
           "editorMode": "code",
-          "expr": "kubernetes.container_name:=\"$container\"\n| $filter\n| sort by (_time)\n| limit $limit",
+          "expr": "kubernetes.container_name:=in\"$container\"\n| $filter\n| sort by (_time)\n| limit $limit",
           "queryType": "instant",
           "range": true,
           "refId": "A"
