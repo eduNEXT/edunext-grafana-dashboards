@@ -1,6 +1,25 @@
 # CHANGELOG
 
 
+## v0.8.2 (2026-09-15)
+
+### Bug Fixes
+
+- **victorialogs-dashboard**: Release container interpolation fix
+  ([#14](https://github.com/eduNEXT/edunext-grafana-dashboards/pull/14),
+  [`a39ec98`](https://github.com/eduNEXT/edunext-grafana-dashboards/commit/a39ec9897259fa8ec3f8532c461d083ca9441b32))
+
+### Chores
+
+- **victoria-logs**: Fix main panel filter, in preparation for plugin upgrade to 0.22.0
+  ([#13](https://github.com/eduNEXT/edunext-grafana-dashboards/pull/13),
+  [`860762d`](https://github.com/eduNEXT/edunext-grafana-dashboards/commit/860762d7c58e316c92fca7d1c9ec5202ace33bdf))
+
+Victoria logs datasource plugin is going to be upgraded to 0.22.0 version, and there are some
+  changes regarding how it handles interpolation. As a result, the expression on the dashboard main
+  panel filter needed to be adapted.
+
+
 ## v0.8.1 (2026-09-03)
 
 ### Bug Fixes
